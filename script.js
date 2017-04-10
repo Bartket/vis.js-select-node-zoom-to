@@ -1,20 +1,3 @@
-var nodes = new vis.DataSet([
-  {id: 1, label: 'Node 1'},
-  {id: 2, label: 'Node 2'},
-  {id: 3, label: 'Node 3'},
-  {id: 4, label: 'Node 4'},
-  {id: 5, label: 'Node 5'}
-]);
-
-// create an array with edges
-var edges = new vis.DataSet([
-  {from: 1, to: 3},
-  {from: 1, to: 2},
-  {from: 2, to: 4},
-  {from: 2, to: 5},
-  {from: 3, to: 3}
-]);
-
   var network = null;
   var offsetx, offsety, scale, positionx, positiony, duration, easingFunction, doButton, focusButton, showButton;
   var statusUpdateSpan;
@@ -37,7 +20,10 @@ var edges = new vis.DataSet([
     showButton = document.getElementById('btnShow');
 
     // randomly create some nodes and edges
-    var data = getScaleFreeNetwork(amountOfNodes);
+    var data = {
+    nodes: nodes,
+    edges: edges
+  };
 
     // create a network
     var container = document.getElementById('mynetwork');
@@ -65,13 +51,10 @@ var edges = new vis.DataSet([
       };
       network.fit({animation:options});
     }
-
-  var _r;
-  var row;
   function focusNode() {
-    row = document.getElementById("_nodes");
-    _r = row.options[row.selectedIndex].value;
-    var nodeId = _r
+    input_val = document.getElementById("_nodes2");
+    node_num = input_val.value;
+    var nodeId = node_num
     var options = {
       // position: {x:positionx,y:positiony}, // this is not relevant when focusing on nodes
       scale: 2.0,
@@ -80,7 +63,7 @@ var edges = new vis.DataSet([
         duration: 500
       }
     };
-    statusUpdateSpan.innerHTML = 'Focusing on node: ' + nodeId;
-    finishMessage = 'Node: ' + nodeId + ' in focus.';
+    statusUpdateSpan.innerHTML = 'Focusing on PG: ' + nodeId;
+    finishMessage = 'PG: ' + nodeId + ' in focus.';
     network.focus(nodeId, options);
   }

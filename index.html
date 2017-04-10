@@ -32,7 +32,9 @@
   <script type="text/javascript" src="src/vis.js"></script>
   <link href="src/vis-network.min.css" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="src/bootstrap.css">
-
+<!-- Network -->
+<script type="text/javascript" src="src/Network.js"></script>
+<!-- Config and functions -->
 <script type="text/javascript" src="script.js"></script>
 
 </head>
@@ -42,23 +44,15 @@
 <div class="left">
   <div>
     <span id="statusUpdate"></span><br>
-    Node:
+    PG:
     <!-- Form for Node input -->
-    <select id = "_nodes">
-        <option value="Node" selected disabled>Node</option>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-    <input type="button" onclick="focusNode();" value="Focus on selected node." id="btnFocus"><br>
+    <input id="_nodes2" type="number" />
+    <input type="button" onclick="focusNode();" value="Focus on selected PG." id="btnFocus"><br>
     <input type="button" onclick="fitAnimated();" value="Fit to view" id="btnZoom"> <br>
   </div>
 </div>
 <div class="right">
   <div id="mynetwork"><div class="vis-network" tabindex="900" style="position: relative; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"><canvas width="600" height="600" style="position: relative; touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;"></canvas></div></div>
-  <p id="selection"></p>
 </div>
 
 
